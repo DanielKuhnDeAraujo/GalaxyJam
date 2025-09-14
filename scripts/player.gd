@@ -37,7 +37,11 @@ func _physics_process(delta: float) -> void:
 		animated_sprite.play("idlelua")
 	if personagem == "sol" :
 		animated_sprite.play("idlesol")
-	
+	#DASH
+	gravity=980
+	if	not is_on_floor() and personagem=="lua" and Input.is_action_pressed("shift"):
+		gravity=0
+		velocity.y= 10
 	if is_on_floor() and dashw==1 :
 		dash=1
 	if Input.is_action_just_pressed("shift") and dash==1 and personagem=="sol" :
@@ -73,8 +77,6 @@ func _physics_process(delta: float) -> void:
 		else :
 			velocity.x = move_toward(velocity.x, 0, speed)
 		#animated_sprite.play("idle")
-	
-	#DASH
 	
 	# Opcional: Limitar quantidade de pontos para não crescer infinitamente
 	move_and_slide()
