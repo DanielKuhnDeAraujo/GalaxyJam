@@ -74,7 +74,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8vuu"]
-size = Vector2(8, 10)
+size = Vector2(6, 10)
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_g2els")
@@ -82,8 +82,7 @@ script = ExtResource("1_g2els")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_qhqgy")
-animation = &"idlelua"
-frame_progress = 0.0820662
+animation = &"idlesol"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)

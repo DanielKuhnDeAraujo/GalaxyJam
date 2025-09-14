@@ -41,7 +41,7 @@ func _physics_process(delta: float) -> void:
 	gravity=980
 	if	not is_on_floor() and personagem=="lua" and Input.is_action_pressed("shift"):
 		gravity=0
-		velocity.y= 10
+		velocity.y= 25
 	if is_on_floor() and dashw==1 :
 		dash=1
 	if Input.is_action_just_pressed("shift") and dash==1 and personagem=="sol" :
