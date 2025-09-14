@@ -1,13 +1,16 @@
 extends CharacterBody2D
 
-
-var SPEED = 130.0
+@onready var cool = $dashcool
+@onready var gravitimer = $gravidade
+var SPEED_INI = 130.0
+var speed = SPEED_INI
 var JUMP_VELOCITY = -300.0
 var gravity =980
+var dash=1
+var dashw=1
+var dashdir=1
 @onready var animated_sprite = $AnimatedSprite2D
 var personagem = "lua"
-
-
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -34,14 +37,26 @@ func _physics_process(delta: float) -> void:
 		animated_sprite.play("idlelua")
 	if personagem == "sol" :
 		animated_sprite.play("idlesol")
+	
+	if is_on_floor() and dashw==1 :
+		dash=1
+	if Input.is_action_just_pressed("shift") and dash==1 and personagem=="sol" :
+		speed=500
+		gravity=0
+		velocity.y=0
+		dash=0
+		dashw=0
 		
-		
-		
+		cool.start()
+		gravitimer.start()
+	if not Input.is_action_pressed("shift") :
+		speed =SPEED_INI
+	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = direction * speed
 		if direction < 0 :
 			animated_sprite.flip_h=false
 		if direction > 0 :
@@ -50,8 +65,33 @@ func _physics_process(delta: float) -> void:
 			#animated_sprite.play("run")
 		#else :
 			#animated_sprite.play("jump")	
+		dashdir=direction
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+		if speed == 500 : 
+			velocity.x = dashdir * speed
+		else :
+			velocity.x = move_toward(velocity.x, 0, speed)
 		#animated_sprite.play("idle")
-
+	
+	#DASH
+	
+	# Opcional: Limitar quantidade de pontos para não crescer infinitamente
 	move_and_slide()
+
+
+
+	# Adiciona o ponto atual à linha
+	
+
+
+func _on_gravidade_timeout() -> void:
+	gravity=980
+	if Input.is_action_pressed("shift"):
+		speed=180
+	pass # Replace with function body.
+
+
+func _on_dashcool_timeout() -> void:
+	dashw=1
+	

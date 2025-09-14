@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cpyuf8la34icf"]
+[gd_scene load_steps=7 format=3 uid="uid://cpyuf8la34icf"]
 
 [ext_resource type="Script" uid="uid://bvhryl0sfrhp5" path="res://scenes/parede_sol.gd" id="1_c20sb"]
 [ext_resource type="Texture2D" uid="uid://s01yxkif0710" path="res://assets/New Piskel-1.png.png" id="2_ngabf"]
@@ -21,6 +21,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_quifr"]
 size = Vector2(16, 32)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ngabf"]
+size = Vector2(18, 32)
+
 [node name="ParedeSol" type="StaticBody2D"]
 script = ExtResource("1_c20sb")
 
@@ -33,3 +36,12 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -17)
 shape = SubResource("RectangleShape2D_quifr")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -17)
+shape = SubResource("RectangleShape2D_ngabf")
+debug_color = Color(0.632102, 0.520032, 0.272649, 0.42)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

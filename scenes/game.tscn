@@ -9,8 +9,10 @@ size = Vector2(1066, 20)
 [node name="game" type="Node2D"]
 
 [node name="ParedeSol2" parent="." instance=ExtResource("1_yqjtg")]
-position = Vector2(239, 322)
-rotation = 1.5708
+position = Vector2(264, 363)
+
+[node name="ParedeSol3" parent="." instance=ExtResource("1_yqjtg")]
+position = Vector2(280, 363)
 
 [node name="ParedeSol" parent="." instance=ExtResource("1_yqjtg")]
 position = Vector2(248, 363)
