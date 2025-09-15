@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var cool = $dashcool
 @onready var gravitimer = $gravidade
-var SPEED_INI = 130.0
+var SPEED_INI = 70.0
 var speed = SPEED_INI
 var JUMP_VELOCITY = -300.0
 var gravity =980
@@ -10,7 +10,7 @@ var dash=1
 var dashw=1
 var dashdir=1
 @onready var animated_sprite = $AnimatedSprite2D
-var personagem = "lua"
+var personagem = "sol"
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -45,7 +45,7 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor() and dashw==1 :
 		dash=1
 	if Input.is_action_just_pressed("shift") and dash==1 and personagem=="sol" :
-		speed=500
+		speed=300
 		gravity=0
 		velocity.y=0
 		dash=0
@@ -90,7 +90,7 @@ func _physics_process(delta: float) -> void:
 func _on_gravidade_timeout() -> void:
 	gravity=980
 	if Input.is_action_pressed("shift"):
-		speed=180
+		speed=130
 	pass # Replace with function body.
 
 
