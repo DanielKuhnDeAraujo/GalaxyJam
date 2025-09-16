@@ -90,16 +90,16 @@ position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_u8vuu")
 
 [node name="dashcool" type="Timer" parent="."]
-wait_time = 0.7
+wait_time = 0.6
 one_shot = true
 
 [node name="gravidade" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.15
 one_shot = true
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-amount = 10
-lifetime = 2.0
+amount = 50
+lifetime = 3.0
 gravity = Vector2(0, 0)
 
 [connection signal="timeout" from="dashcool" to="." method="_on_dashcool_timeout"]
