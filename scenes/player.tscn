@@ -97,5 +97,10 @@ one_shot = true
 wait_time = 0.1
 one_shot = true
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 10
+lifetime = 2.0
+gravity = Vector2(0, 0)
+
 [connection signal="timeout" from="dashcool" to="." method="_on_dashcool_timeout"]
 [connection signal="timeout" from="gravidade" to="." method="_on_gravidade_timeout"]
