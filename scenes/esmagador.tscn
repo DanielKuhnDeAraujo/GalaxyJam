@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://bv7ohggmvfj0b"]
+
+[ext_resource type="Texture2D" uid="uid://dck4t10wly77b" path="res://assets/treco_esmagador.png" id="1_vapu2"]
+[ext_resource type="Script" uid="uid://douqwm4f6amwl" path="res://scripts/killesmaga.gd" id="2_ljakf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljakf"]
+atlas = ExtResource("1_vapu2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aggju"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljakf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vapu2"]
+size = Vector2(28, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ljakf"]
+size = Vector2(30, 3)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_aggju")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_vapu2")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_ljakf")
+
+[node name="Timer" type="Timer" parent="Area2D"]
+wait_time = 0.6
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 13.5)
+shape = SubResource("RectangleShape2D_ljakf")
+debug_color = Color(0.985886, 0, 0.329251, 0.42)
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
+[connection signal="body_shape_exited" from="Area2D" to="Area2D" method="_on_body_shape_exited"]
+[connection signal="timeout" from="Area2D/Timer" to="Area2D" method="_on_timer_timeout"]
