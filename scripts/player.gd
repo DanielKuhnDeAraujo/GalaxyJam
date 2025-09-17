@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 @onready var cool = $dashcool
 @onready var gravitimer = $gravidade
+@onready var coyoteTM = $coyoteTM
+@onready var inputBuffer = $INP_Buffer
+var canJump = true
 var SPEED_INI = 70.0
 var speed = SPEED_INI
 var JUMP_VELOCITY = -300.0
@@ -15,12 +18,31 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
+		
 
+	if is_on_floor() and !canJump:
+		canJump = true
+		
+	#Começa coyote time
+	if canJump and coyoteTM.is_stopped():
+		coyoteTM.start()
+		
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("ui_accept") and canJump:
+		velocity.y = JUMP_VELOCITY  
+		if !inputBuffer.is_stopped():
+			velocity.y = JUMP_VELOCITY
+		
+	if Input.is_action_just_pressed("ui_accept") and !canJump:
+		inputBuffer.start()
+		
+	if !inputBuffer.is_stopped() and canJump:
 		velocity.y = JUMP_VELOCITY
 		
+	
+	
 		
+
 		#Trocar Lua Sol
 	if Input.is_action_just_pressed("z") :
 		if personagem == "lua" :
@@ -97,3 +119,11 @@ func _on_gravidade_timeout() -> void:
 func _on_dashcool_timeout() -> void:
 	dashw=1
 	
+
+
+func _on_coyote_tm_timeout() -> void: # func do coyote time
+	canJump = false
+
+
+func _on_inp_buffer_timeout() -> void:
+	pass # Replace with function body.

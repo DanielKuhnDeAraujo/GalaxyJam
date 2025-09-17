@@ -102,5 +102,15 @@ amount = 50
 lifetime = 3.0
 gravity = Vector2(0, 0)
 
+[node name="coyoteTM" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+
+[node name="INP_Buffer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
 [connection signal="timeout" from="dashcool" to="." method="_on_dashcool_timeout"]
 [connection signal="timeout" from="gravidade" to="." method="_on_gravidade_timeout"]
+[connection signal="timeout" from="coyoteTM" to="." method="_on_coyote_tm_timeout"]
+[connection signal="timeout" from="INP_Buffer" to="." method="_on_inp_buffer_timeout"]
