@@ -125,5 +125,5 @@ func _on_coyote_tm_timeout() -> void: # func do coyote time
 	canJump = false
 
 
-func _on_inp_buffer_timeout() -> void:
+func _on_inp_buffer_timeout() -> void:#talves utilitário, mas até agr sem uso
 	pass # Replace with function body.
