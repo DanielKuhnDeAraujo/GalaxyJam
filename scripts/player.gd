@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var gravitimer = $gravidade
 @onready var coyoteTM = $coyoteTM
 @onready var inputBuffer = $INP_Buffer
+@onready var game = get_parent()
 var canJump = true
 var SPEED_INI = 70.0
 var speed = SPEED_INI
@@ -12,12 +13,17 @@ var gravity =980
 var dash=1
 var dashw=1
 var dashdir=1
+var chao = false
 @onready var animated_sprite = $AnimatedSprite2D
 var personagem = "sol"
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
+		chao=false
 		velocity.y += gravity * delta
+	else :
+		chao =true
+		
 		
 
 	if is_on_floor() and !canJump:
@@ -44,11 +50,12 @@ func _physics_process(delta: float) -> void:
 		
 
 		#Trocar Lua Sol
-	if Input.is_action_just_pressed("z") :
+	if Input.is_action_just_pressed("z") and game.transforma>0:
 		if personagem == "lua" :
 			personagem = "sol"
 		elif personagem == "sol" :
 			personagem ="lua"
+		game.transforma-=1
 			
 	if personagem == "lua" :
 		JUMP_VELOCITY=-280

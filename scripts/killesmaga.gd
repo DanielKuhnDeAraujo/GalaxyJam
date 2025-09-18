@@ -9,7 +9,7 @@ func _on_timer_timeout() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.name == "player" and body.chao == "s":
+	if body.name == "player" and body.chao :
 		Engine.time_scale = 0.5
 		if body.has_node("colisao"):
 			body.get_node("colisao").queue_free()
@@ -21,7 +21,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 
 func _on_body_exited(body: Node2D) -> void:
-	if body.name == "player" and body.chao == "s":
+	if body.name == "player" and body.chao:
 		Engine.time_scale = 0.5
 		if body.has_node("colisao"):
 			body.get_node("colisao").queue_free()

@@ -1,13 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bsuagj868vv7e"]
+[gd_scene load_steps=10 format=3 uid="uid://bsuagj868vv7e"]
 
 [ext_resource type="Script" uid="uid://chih3j4662qtn" path="res://scenes/game.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://confdaj1x3u2l" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://b442jwckxgb6m" path="res://assets/tileset_losango.png" id="3_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://cyumtsbmp3pv0" path="res://assets/tileset_tijolo.png" id="4_iywne"]
-[ext_resource type="PackedScene" uid="uid://b8wi4h34hx3si" path="res://scripts/AreaNext.tscn" id="5_iywne"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_lnu2h"]
-font_size = 10
+[ext_resource type="PackedScene" uid="uid://b8wi4h34hx3si" path="res://scenes/AreaNext.tscn" id="5_iywne"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p57ef"]
 texture = ExtResource("3_lbhrr")
@@ -45,15 +42,7 @@ zoom = Vector2(3, 3)
 limit_smoothed = true
 
 [node name="player" parent="." instance=ExtResource("1_uwrxv")]
-position = Vector2(44, 328)
-
-[node name="Label" type="Label" parent="."]
-offset_left = 214.0
-offset_top = 337.0
-offset_right = 295.0
-offset_bottom = 369.0
-text = "AAAAAAAAAAAA"
-label_settings = SubResource("LabelSettings_lnu2h")
+position = Vector2(22, 378)
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(0, 1)
