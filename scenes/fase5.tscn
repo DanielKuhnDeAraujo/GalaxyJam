@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://yxcqkxfm42pt"]
+[gd_scene load_steps=15 format=3 uid="uid://yxcqkxfm42pt"]
 
 [ext_resource type="Script" uid="uid://ddj7nmxdusrhq" path="res://scripts/fase_5.gd" id="1_dwgjv"]
 [ext_resource type="PackedScene" uid="uid://confdaj1x3u2l" path="res://scenes/player.tscn" id="2_7ebma"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://1b0ttvke3grr" path="res://assets/fundo (cópia).png" id="5_ciaj8"]
 [ext_resource type="Texture2D" uid="uid://cxxe4g8fjfg5s" path="res://assets/troca.png" id="6_lkvt1"]
 [ext_resource type="PackedScene" uid="uid://b8wi4h34hx3si" path="res://scenes/AreaNext.tscn" id="7_dqee2"]
+[ext_resource type="PackedScene" uid="uid://1h0kx706qe5k" path="res://scenes/o_estrela.tscn" id="8_7ebma"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dwgjv"]
 texture = ExtResource("3_4jllk")
@@ -86,3 +87,6 @@ metadata/_edit_use_anchors_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(341.5, 282.001)
 shape = SubResource("RectangleShape2D_dqee2")
+
+[node name="o estrela" parent="." instance=ExtResource("8_7ebma")]
+position = Vector2(75, 275)

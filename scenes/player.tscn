@@ -83,14 +83,14 @@ script = ExtResource("1_g2els")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_qhqgy")
-animation = &"idlesol"
+animation = &"idlelua"
 
-[node name="colisao" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_u8vuu")
 
 [node name="dashcool" type="Timer" parent="."]
-wait_time = 0.6
+wait_time = 0.4
 one_shot = true
 
 [node name="gravidade" type="Timer" parent="."]
@@ -98,7 +98,6 @@ wait_time = 0.15
 one_shot = true
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-scale = Vector2(0.1, 0.1)
 amount = 50
 lifetime = 3.0
 gravity = Vector2(0, 0)

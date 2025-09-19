@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var coyoteTM = $coyoteTM
 @onready var inputBuffer = $INP_Buffer
 @onready var game = get_parent()
+@onready var reset
 var canJump = true
 var SPEED_INI = 70.0
 var speed = SPEED_INI
