@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://drmeakmowwgmu"]
+[gd_scene load_steps=25 format=3 uid="uid://drmeakmowwgmu"]
 
 [ext_resource type="Texture2D" uid="uid://gagpv16wk454" path="res://assets/fundo grama.png" id="1_21vb6"]
+[ext_resource type="Script" uid="uid://dqajdbmurkpxn" path="res://scripts/fase_final.gd" id="1_35g3k"]
 [ext_resource type="Texture2D" uid="uid://v3us2p1od7bj" path="res://assets/fundo pedra.png" id="2_tm8ig"]
 [ext_resource type="Texture2D" uid="uid://cyumtsbmp3pv0" path="res://assets/tileset_tijolo.png" id="3_tqwsu"]
 [ext_resource type="Texture2D" uid="uid://dt7heyd5sjuir" path="res://assets/tileset_grama.png" id="4_uhgqd"]
@@ -10,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b8wi4h34hx3si" path="res://scenes/AreaNext.tscn" id="8_uhgqd"]
 [ext_resource type="PackedScene" uid="uid://confdaj1x3u2l" path="res://scenes/player.tscn" id="9_4h1f0"]
 [ext_resource type="PackedScene" uid="uid://ch2tjeyre7bee" path="res://scenes/gema.tscn" id="10_4h1f0"]
+[ext_resource type="PackedScene" uid="uid://bxgs8napkmchb" path="res://scenes/espinho.tscn" id="12_8dvka"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8dvka"]
 texture = ExtResource("1_21vb6")
@@ -28,23 +30,35 @@ texture = ExtResource("2_tm8ig")
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8lqp1"]
 texture = ExtResource("3_tqwsu")
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mkg8d"]
 texture = ExtResource("4_uhgqd")
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bavo2"]
 texture = ExtResource("5_4h1f0")
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ch07s"]
 texture = ExtResource("6_35g3k")
@@ -64,6 +78,7 @@ texture = ExtResource("1_21vb6")
 1:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_3alxg"]
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_8dvka")
 sources/1 = SubResource("TileSetAtlasSource_mpdwy")
 sources/2 = SubResource("TileSetAtlasSource_8lqp1")
@@ -76,7 +91,14 @@ sources/7 = SubResource("TileSetAtlasSource_tm8ig")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_35g3k"]
 size = Vector2(21.5, 62.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mpdwy"]
+size = Vector2(91, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8lqp1"]
+size = Vector2(124, 10)
+
 [node name="game" type="Node2D"]
+script = ExtResource("1_35g3k")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_3alxg")
@@ -95,7 +117,21 @@ position = Vector2(-1, 14.75)
 shape = SubResource("RectangleShape2D_35g3k")
 
 [node name="player" parent="." instance=ExtResource("9_4h1f0")]
-position = Vector2(25, 173)
+position = Vector2(33, 163)
 
 [node name="gema" parent="." instance=ExtResource("10_4h1f0")]
 position = Vector2(59, 162)
+
+[node name="Area2D3" parent="." instance=ExtResource("12_8dvka")]
+position = Vector2(820, 63.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+position = Vector2(-484.5, 140.5)
+shape = SubResource("RectangleShape2D_mpdwy")
+
+[node name="Area2D2" parent="." instance=ExtResource("12_8dvka")]
+position = Vector2(410, 31.75)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(-234, 159.25)
+shape = SubResource("RectangleShape2D_8lqp1")

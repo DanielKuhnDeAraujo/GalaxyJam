@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=3 uid="uid://dhvmd4yikvj4h"]
 
-[ext_resource type="Script" uid="uid://dntu4im8pkc0d" path="res://scripts/fase_8.gd" id="1_kuvqf"]
+[ext_resource type="Script" path="res://scripts/fase_8.gd" id="1_kuvqf"]
 [ext_resource type="PackedScene" uid="uid://cpyuf8la34icf" path="res://scenes/parede_sol.tscn" id="1_x5v6o"]
 [ext_resource type="Texture2D" uid="uid://cyumtsbmp3pv0" path="res://assets/tileset_tijolo.png" id="2_fp3en"]
 [ext_resource type="Texture2D" uid="uid://bbl25bhiuv8kr" path="res://assets/New Piskel-1.png (2) (1).png" id="3_jtr3h"]
