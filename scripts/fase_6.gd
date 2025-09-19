@@ -1,7 +1,7 @@
 extends Node2D
 @onready var label = $Label
-var next = "res://scenes/fase6.tscn"
-var transforma =1
+var next = "res://scenes/fase7.tscn"
+var transforma =0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

@@ -115,3 +115,11 @@ layer_1/tile_data = PackedInt32Array(983030, 2, 1, 1048565, 2, 1, 1114100, 2, 1,
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(334.5, 361.125)
 shape = SubResource("RectangleShape2D_88aif")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 87.0
+offset_top = 232.0
+offset_right = 189.0
+offset_bottom = 281.0
+text = "Shift to dash.
+Hold to run"
